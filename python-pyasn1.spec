@@ -17,8 +17,9 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This project is dedicated to implementation of ASN.1 types (concrete syntax)
-and codecs (transfer syntaxes) for Python programming environment.
+This project is dedicated to implementation of ASN.1 types (concrete
+syntax) and codecs (transfer syntaxes) for Python programming
+environment.
 
 %package examples
 Summary:	Example programs for Python pyasn1 module
