@@ -21,6 +21,11 @@ This project is dedicated to implementation of ASN.1 types (concrete
 syntax) and codecs (transfer syntaxes) for Python programming
 environment.
 
+%description -l pl
+Celem tego projektu jest implementacja typów (konkretnej sk³adni) i
+kodowania (sk³adni przesy³ania) ASN.1 dla ¶rodowiska programowania
+Python.
+
 %package examples
 Summary:	Example programs for Python pyasn1 module
 Summary(pl):	Programy przyk³adowe do modu³u Pythona pyasn1
@@ -57,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README CHANGES TODO doc/*
-%{py_sitescriptdir}/%{module}/*
+%{py_sitescriptdir}/%{module}
 
 %files examples
 %defattr(644,root,root,755)
