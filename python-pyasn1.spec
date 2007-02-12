@@ -2,7 +2,7 @@
 %define		module	pyasn1
 
 Summary:	ASN.1 tools for Python
-Summary(pl):	Narzêdzia ASN.1 dla Pythona
+Summary(pl.UTF-8):   NarzÄ™dzia ASN.1 dla Pythona
 Name:		python-%{module}
 Version:	0.0.4a
 Release:	1
@@ -21,22 +21,22 @@ This project is dedicated to implementation of ASN.1 types (concrete
 syntax) and codecs (transfer syntaxes) for Python programming
 environment.
 
-%description -l pl
-Celem tego projektu jest implementacja typów (konkretnej sk³adni) i
-kodowania (sk³adni przesy³ania) ASN.1 dla ¶rodowiska programowania
+%description -l pl.UTF-8
+Celem tego projektu jest implementacja typÃ³w (konkretnej skÅ‚adni) i
+kodowania (skÅ‚adni przesyÅ‚ania) ASN.1 dla Å›rodowiska programowania
 Python.
 
 %package examples
 Summary:	Example programs for Python pyasn1 module
-Summary(pl):	Programy przyk³adowe do modu³u Pythona pyasn1
+Summary(pl.UTF-8):   Programy przykÅ‚adowe do moduÅ‚u Pythona pyasn1
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
 
 %description examples
 This package contains example programs for Python pyasn1 module.
 
-%description examples -l pl
-Ten pakiet zawiera przyk³adowe programy do modu³u Pythona pyasn1.
+%description examples -l pl.UTF-8
+Ten pakiet zawiera przykÅ‚adowe programy do moduÅ‚u Pythona pyasn1.
 
 %prep
 %setup -q -n %{module}-%{version}
