@@ -2,7 +2,7 @@
 %define		module	pyasn1
 
 Summary:	ASN.1 tools for Python
-Summary(pl.UTF-8):   Narzędzia ASN.1 dla Pythona
+Summary(pl.UTF-8):	Narzędzia ASN.1 dla Pythona
 Name:		python-%{module}
 Version:	0.0.4a
 Release:	1
@@ -28,7 +28,7 @@ Python.
 
 %package examples
 Summary:	Example programs for Python pyasn1 module
-Summary(pl.UTF-8):   Programy przykładowe do modułu Pythona pyasn1
+Summary(pl.UTF-8):	Programy przykładowe do modułu Pythona pyasn1
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
 
