@@ -11,7 +11,8 @@ Group:		Libraries/Python
 Source0:	http://dl.sourceforge.net/pyasn1/%{module}-%{version}.tar.gz
 # Source0-md5:	1befe83fd3d8dd8bb0d0fbe58a5788a5
 URL:		http://pyasn1.sourceforge.net/
-BuildRequires:	python >= 2.2.1
+BuildRequires:	python >= 1:2.5
+BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -42,12 +43,12 @@ Ten pakiet zawiera przykładowe programy do modułu Pythona pyasn1.
 %setup -q -n %{module}-%{version}
 
 %build
-python setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python setup.py install \
+%{__python} setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
