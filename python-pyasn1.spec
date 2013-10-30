@@ -13,7 +13,7 @@ Version:	0.1.7
 Release:	1
 License:	BSD-like
 Group:		Libraries/Python
-Source0:	http://dl.sourceforge.net/pyasn1/%{module}-%{version}.tar.gz
+Source0:	https://pypi.python.org/packages/source/p/pyasn1/%{module}-%{version}.tar.gz
 # Source0-md5:	2cbd80fcd4c7b1c82180d3d76fee18c8
 URL:		http://pyasn1.sourceforge.net/
 %if %{with python2}
