@@ -1,4 +1,4 @@
-
+#
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 %bcond_without	python2 # CPython 2.x module
@@ -95,15 +95,15 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc README CHANGES TODO doc/*
+%doc CHANGES LICENSE README THANKS TODO doc/*.html
 %{py_sitescriptdir}/%{module}
-%{py_sitescriptdir}/*.egg-info
+%{py_sitescriptdir}/pyasn1-%{version}-py*.egg-info
 %endif
 
 %if %{with python3}
 %files -n python3-%{module}
 %defattr(644,root,root,755)
-%doc README CHANGES TODO doc/*
+%doc CHANGES LICENSE README THANKS TODO doc/*.html
 %{py3_sitescriptdir}/%{module}
-%{py3_sitescriptdir}/*.egg-info
+%{py3_sitescriptdir}/pyasn1-%{version}-py*.egg-info
 %endif
