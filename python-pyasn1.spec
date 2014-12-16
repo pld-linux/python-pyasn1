@@ -28,7 +28,7 @@ BuildRequires:	python3-modules >= 1:3.3
 %endif
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
-Obsoletes:	%{name}-examples
+Obsoletes:	python-pyasn1-examples
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
