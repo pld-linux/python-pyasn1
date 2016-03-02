@@ -9,12 +9,12 @@
 Summary:	ASN.1 tools for Python
 Summary(pl.UTF-8):	Narzędzia ASN.1 dla Pythona
 Name:		python-%{module}
-Version:	0.1.7
-Release:	5
+Version:	0.1.9
+Release:	1
 License:	BSD-like
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/p/pyasn1/%{module}-%{version}.tar.gz
-# Source0-md5:	2cbd80fcd4c7b1c82180d3d76fee18c8
+# Source0-md5:	f00a02a631d4016818659d1cc38d229a
 URL:		http://pyasn1.sourceforge.net/
 BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python2}
@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc CHANGES LICENSE README THANKS TODO doc/*.html
+%doc CHANGES.txt LICENSE.txt README.txt THANKS.txt TODO.txt doc/*.html
 %{py_sitescriptdir}/%{module}
 %{py_sitescriptdir}/pyasn1-%{version}-py*.egg-info
 %endif
@@ -96,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python3}
 %files -n python3-%{module}
 %defattr(644,root,root,755)
-%doc CHANGES LICENSE README THANKS TODO doc/*.html
+%doc CHANGES.txt LICENSE.txt README.txt THANKS.txt TODO.txt doc/*.html
 %{py3_sitescriptdir}/%{module}
 %{py3_sitescriptdir}/pyasn1-%{version}-py*.egg-info
 %endif
