@@ -13,18 +13,22 @@ Version:	0.1.9
 Release:	1
 License:	BSD-like
 Group:		Libraries/Python
+#Source0Download: https://pypi.python.org/simple/pyasn1/
 Source0:	https://pypi.python.org/packages/source/p/pyasn1/%{module}-%{version}.tar.gz
 # Source0-md5:	f00a02a631d4016818659d1cc38d229a
 URL:		http://pyasn1.sourceforge.net/
 BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python2}
 BuildRequires:	python >= 1:2.5
-BuildRequires:	python-distribute
 BuildRequires:	python-modules >= 1:2.5
+%if %{with tests}
+%if "%{py_ver}" < "2.7"
+BuildRequires:	python-unittest2
+%endif
+%endif
 %endif
 %if %{with python3}
 BuildRequires:	python3 >= 1:3.3
-BuildRequires:	python3-distribute
 BuildRequires:	python3-modules >= 1:3.3
 %endif
 BuildRequires:	rpm-pythonprov
