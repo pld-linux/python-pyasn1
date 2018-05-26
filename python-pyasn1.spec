@@ -10,19 +10,19 @@
 Summary:	ASN.1 tools for Python
 Summary(pl.UTF-8):	Narzędzia ASN.1 dla Pythona
 Name:		python-%{module}
-Version:	0.2.3
+Version:	0.4.3
 Release:	1
 License:	BSD-like
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/pyasn1/
 Source0:	https://files.pythonhosted.org/packages/source/p/pyasn1/%{module}-%{version}.tar.gz
-# Source0-md5:	79f98135071c8dd5c37b6c923c51be45
-Patch0:		%{name}-missing.patch
+# Source0-md5:	311fff5b2a1303a8cdc334c8867a06f4
 URL:		http://pyasn1.sourceforge.net/
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
 BuildRequires:	python >= 1:2.5
 BuildRequires:	python-modules >= 1:2.5
+BuildRequires:	python-setuptools
 %if %{with tests}
 %if "%{py_ver}" < "2.7"
 BuildRequires:	python-unittest2
@@ -32,6 +32,7 @@ BuildRequires:	python-unittest2
 %if %{with python3}
 BuildRequires:	python3 >= 1:3.3
 BuildRequires:	python3-modules >= 1:3.3
+BuildRequires:	python3-setuptools
 %endif
 BuildRequires:	rpm-pythonprov
 %if %{with apidocs}
@@ -82,7 +83,6 @@ Dokumentacja do modułu Pythona ASN.1.
 
 %prep
 %setup -q -n %{module}-%{version}
-%patch0 -p1
 
 %build
 %if %{with python2}
@@ -94,7 +94,7 @@ Dokumentacja do modułu Pythona ASN.1.
 
 %if %{with apidocs}
 PYTHONPATH=$(pwd)/build-py3/lib \
-%{__make} -C doc html
+%{__make} -C docs html
 %endif
 
 %install
@@ -116,7 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc CHANGES.rst LICENSE.rst README.md THANKS.txt TODO.rst
+%doc CHANGES.rst LICENSE.rst README.md TODO.rst
 %{py_sitescriptdir}/%{module}
 %{py_sitescriptdir}/pyasn1-%{version}-py*.egg-info
 %endif
@@ -124,7 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python3}
 %files -n python3-%{module}
 %defattr(644,root,root,755)
-%doc CHANGES.rst LICENSE.rst README.md THANKS.txt TODO.rst
+%doc CHANGES.rst LICENSE.rst README.md TODO.rst
 %{py3_sitescriptdir}/%{module}
 %{py3_sitescriptdir}/pyasn1-%{version}-py*.egg-info
 %endif
@@ -132,5 +132,5 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
-%doc doc/build/html/{_static,docs,*.html,*.js}
+%doc docs/build/html/{_static,pyasn1,*.html,*.js}
 %endif
