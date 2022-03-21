@@ -40,7 +40,7 @@ BuildRequires:	python3-sphinx_rtd_theme
 BuildRequires:	sphinx-pdg
 %endif
 Requires:	python-modules >= 1:2.5
-Obsoletes:	python-pyasn1-examples
+Obsoletes:	python-pyasn1-examples < 0.0.13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
