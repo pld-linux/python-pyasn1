@@ -10,28 +10,24 @@
 Summary:	ASN.1 tools for Python
 Summary(pl.UTF-8):	Narzędzia ASN.1 dla Pythona
 Name:		python-%{module}
-Version:	0.4.8
-Release:	6
+# keep 0.5.x here for python2 support
+Version:	0.5.1
+Release:	1
 License:	BSD-like
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pyasn1/
 Source0:	https://files.pythonhosted.org/packages/source/p/pyasn1/%{module}-%{version}.tar.gz
-# Source0-md5:	dffae4ff9f997a83324b3f33fe62be54
+# Source0-md5:	1e8ca05cc7040aaf06e321886715eb7e
 URL:		https://github.com/etingof/pyasn1
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
-BuildRequires:	python >= 1:2.5
-BuildRequires:	python-modules >= 1:2.5
+BuildRequires:	python >= 1:2.7
+BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
-%if %{with tests}
-%if "%{py_ver}" < "2.7"
-BuildRequires:	python-unittest2
-%endif
-%endif
 %endif
 %if %{with python3}
-BuildRequires:	python3 >= 1:3.3
-BuildRequires:	python3-modules >= 1:3.3
+BuildRequires:	python3 >= 1:3.6
+BuildRequires:	python3-modules >= 1:3.6
 BuildRequires:	python3-setuptools
 %endif
 BuildRequires:	rpm-pythonprov
@@ -39,7 +35,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	python3-sphinx_rtd_theme
 BuildRequires:	sphinx-pdg
 %endif
-Requires:	python-modules >= 1:2.5
+Requires:	python-modules >= 1:2.7
 Obsoletes:	python-pyasn1-examples < 0.0.13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -58,7 +54,7 @@ Python.
 Summary:	ASN.1 tools for Python
 Summary(pl.UTF-8):	Narzędzia ASN.1 dla Pythona
 Group:		Libraries/Python
-Requires:	python3-modules >= 1:3.3
+Requires:	python3-modules >= 1:3.6
 
 %description -n python3-%{module}
 This project is dedicated to implementation of ASN.1 types (concrete
@@ -86,10 +82,19 @@ Dokumentacja do modułu Pythona ASN.1.
 
 %build
 %if %{with python2}
-%py_build %{?with_tests:test}
+%py_build
+
+%if %{with tests}
+%{__python} -m tests
 %endif
+%endif
+
 %if %{with python3}
-%py3_build %{?with_tests:test}
+%py3_build
+
+%if %{with tests}
+%{__python3} -m tests
+%endif
 %endif
 
 %if %{with apidocs}
